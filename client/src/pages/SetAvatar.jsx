@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Loader from "../assets/loader.gif";
 
 const SetAvatar = () => {
-  const api = "https://api.multiavatar.com/4645645";
+  const api = "https://api.multiavatar.com";
   const [avatars, setAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedAvatar, setSelectedAvatar] = useState(undefined);
@@ -26,7 +26,9 @@ const SetAvatar = () => {
       const data = [];
       for (let i = 0; i < 4; i++) {
         const randomNumber = Math.round(Math.random() * 1000);
-        const image = await axios.get(`${api}/${randomNumber}`);
+        const image = await axios.get(
+          `${api}/${randomNumber}?apikey=BPa1eAZ5GOSfyI`
+        );
         const buffer = new Buffer(image.data);
         data.push(buffer.toString("base64"));
       }
@@ -52,7 +54,7 @@ const SetAvatar = () => {
               {avatars.map((avatar, index) => (
                 <div
                   key={index}
-                  className={`p-1 border-2 rounded-full ${
+                  className={`border-4 rounded-full ${
                     selectedAvatar === index
                       ? "border-blue-500"
                       : "border-transparent"
@@ -62,7 +64,7 @@ const SetAvatar = () => {
                   <img
                     src={`data:image/svg+xml;base64,${avatar}`}
                     alt="avatar"
-                    className="w-28 h-28 rounded-full"
+                    className="w-28 rounded-full"
                   />
                 </div>
               ))}

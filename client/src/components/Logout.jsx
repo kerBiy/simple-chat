@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { BiPowerOff } from "react-icons/bi";
 import { logoutRoute } from "../utils/ApiRoutes";
 
-export default function Logout() {
+const Logout = () => {
   const navigate = useNavigate();
 
   const handleClick = async () => {
@@ -20,12 +20,12 @@ export default function Logout() {
 
   return (
     <button
-      className="flex justify-center algin-center p-2 rounded-lg border-none cursor-pointer bg-purple-900 text-xl text-red-300"
+      className="flex justify-center algin-center p-2 rounded-lg border-none cursor-pointer bg-teal-400 text-xl text-white transition-transform duration-300 hover:scale-105 hover:bg-teal-500"
       onClick={handleClick}
     >
       <BiPowerOff />
     </button>
   );
-}
+};
 
-// export default Logout;
+export default Logout;

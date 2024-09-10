@@ -70,12 +70,12 @@ const SetAvatar = () => {
   return (
     <>
       {isLoading ? (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-gray-950">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900">
           <img src={Loader} alt="loader" className="w-36 sm:w-42" />
         </div>
       ) : (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-gray-900 to-gray-950 px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-900 bg-opacity-60 backdrop-blur-md border border-gray-800 shadow-lg rounded-lg p-8 w-full max-w-lg lg:max-w-4xl text-center">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900 px-4 sm:px-6 lg:px-8">
+          <div className="bg-gray-800 bg-opacity-60 backdrop-blur-md border border-gray-700 shadow-lg rounded-lg p-8 w-full max-w-lg lg:max-w-4xl text-center flex flex-col gap-8">
             <h1 className="text-3xl sm:text-4xl font-bold text-white mb-8">
               Pick Your Avatar
             </h1>
@@ -85,7 +85,7 @@ const SetAvatar = () => {
                   key={index}
                   className={`border-4 rounded-full ${
                     selectedAvatar === index
-                      ? "border-blue-500"
+                      ? "border-teal-400"
                       : "border-transparent"
                   } cursor-pointer hover:scale-105 transition-transform duration-300`}
                   onClick={() => setSelectedAvatar(index)}
@@ -100,7 +100,7 @@ const SetAvatar = () => {
             </div>
             <button
               onClick={setProfilePicture}
-              className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-lg transition duration-150"
+              className="w-full py-3 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-lg shadow-lg transition duration-150"
             >
               Set as Profile Picture
             </button>

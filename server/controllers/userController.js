@@ -88,3 +88,15 @@ module.exports.getAllUsers = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.logOut = async (req, res, next) => {
+  try {
+    if (!req.params.id) {
+      return res.json({ msg: "User id is required." });
+    }
+
+    return res.status(200).send();
+  } catch (err) {
+    next(err);
+  }
+};

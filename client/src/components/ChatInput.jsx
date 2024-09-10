@@ -11,7 +11,7 @@ const ChatInput = ({ handleSendMsg }) => {
     setShowEmojiPicker(!showEmojiPicker);
   };
 
-  const handleEmojiClick = (event, emojiObject) => {
+  const handleEmojiClick = (emojiObject) => {
     let message = msg;
     message += emojiObject.emoji;
     setMsg(message);
@@ -26,14 +26,14 @@ const ChatInput = ({ handleSendMsg }) => {
   };
 
   return (
-    <div className="bg-gray-800 p-4 rounded-lg flex items-center gap-4">
+    <div className="p-4 rounded-lg flex items-center gap-4">
       <div className="relative">
         <BsEmojiSmileFill
           className="text-2xl text-gray-300 cursor-pointer hover:text-teal-400 transition duration-150"
           onClick={handleEmojiPickerhideShow}
         />
         {showEmojiPicker && (
-          <div className="absolute bottom-12 left-0">
+          <div className="absolute bottom-12 left-0 shadow-md">
             <Picker onEmojiClick={handleEmojiClick} theme="dark" />
           </div>
         )}

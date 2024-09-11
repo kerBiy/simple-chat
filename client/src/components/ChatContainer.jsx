@@ -61,7 +61,7 @@ const ChatContainer = ({ currentChat, socket }) => {
 
   return (
     <div className="h-screen flex flex-col">
-      <div className="flex items-center px-8 py-4 gap-4 shadow-md">
+      <div className="flex items-center px-20 md:px-8 py-4 gap-4 shadow-md">
         <img
           className="w-16"
           src={`data:image/svg+xml;base64,${currentChat.avatarImage}`}

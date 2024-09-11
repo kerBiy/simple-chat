@@ -83,7 +83,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900 px-4 sm:px-6 lg:px-8">
+      <div className="h-screen flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900 px-4 sm:px-6 lg:px-8">
         <form
           className="bg-gray-800 bg-opacity-60 backdrop-blur-md border border-gray-700 shadow-lg rounded-lg p-6 sm:p-8 w-full max-w-xs sm:max-w-md"
           onSubmit={(e) => handleSubmit(e)}

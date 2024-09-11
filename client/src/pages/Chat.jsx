@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { allUsersRoute } from "../utils/ApiRoutes";
+import { allUsersRoute, host } from "../utils/ApiRoutes";
+import { io } from "socket.io-client";
 
 import Contacts from "../components/Contacts";
 import Welcome from "../components/Welcome";
@@ -9,6 +10,7 @@ import ChatContainer from "../components/ChatContainer.jsx";
 
 const Chat = () => {
   const navigate = useNavigate();
+  const socket = useRef();
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -22,7 +24,14 @@ const Chat = () => {
       }
     };
     fetchCurrentUser();
-  }, [navigate]);
+  }, []);
+
+  useEffect(() => {
+    if (currentUser) {
+      socket.current = io(host);
+      socket.current.emit("add-user", currentUser._id);
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -38,7 +47,7 @@ const Chat = () => {
       }
     };
     fetchContacts();
-  }, [currentUser, navigate]);
+  }, [currentUser]);
 
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
@@ -54,7 +63,7 @@ const Chat = () => {
         {currentChat === undefined ? (
           <Welcome />
         ) : (
-          <ChatContainer currentChat={currentChat} />
+          <ChatContainer currentChat={currentChat} socket={socket} />
         )}
       </div>
     </div>

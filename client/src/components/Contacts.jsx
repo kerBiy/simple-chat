@@ -29,7 +29,7 @@ const Contacts = ({ contacts, changeChat }) => {
             Simple<span className="text-teal-400">Chat</span>
           </h3>
 
-          <div className="flex flex-col gap-4 overflow-y-auto px-6">
+          <div className="flex-grow flex flex-col gap-4 overflow-y-auto px-6">
             {contacts.map((contact, index) => (
               <div
                 key={contact._id}

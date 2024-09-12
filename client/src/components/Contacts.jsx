@@ -37,7 +37,7 @@ const Contacts = ({ contacts, changeChat }) => {
                 className={`flex items-center gap-4 p-2 rounded-xl cursor-pointer transition-transform duration-300 hover:scale-105 ${
                   currentSelected === index
                     ? "bg-teal-400"
-                    : "bg-gray-800 hover:bg-gray-700 "
+                    : "bg-transparent hover:bg-gray-700 "
                 }`}
               >
                 <img
